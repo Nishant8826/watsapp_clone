@@ -30,26 +30,26 @@ const Messenger = () => {
 
     return (
         <Div>
-            {/* {
-                account ? */}
-            <>
-                <Header>
-                    <Toolbar>
+            {
+                account ?
+                    <>
+                        <Header>
+                            <Toolbar>
 
-                    </Toolbar>
-                </Header>
-                <ChatDialogue />
-            </>
-            {/* //         :
-            //         <>
-            //             <LoginHeader>
-            //                 <Toolbar>
+                            </Toolbar>
+                        </Header>
+                        <ChatDialogue />
+                    </>
+                    :
+                    <>
+                        <LoginHeader>
+                            <Toolbar>
 
-            //                 </Toolbar>
-            //             </LoginHeader>
-            //             <LoginDialogue />
-            //         </>
-            // } */}
+                            </Toolbar>
+                        </LoginHeader>
+                        <LoginDialogue />
+                    </>
+            }
         </Div>
     )
 }
