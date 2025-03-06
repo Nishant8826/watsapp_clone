@@ -7,7 +7,7 @@ const Component = styled(Box)`
     background: #f8f9fa;
     padding: 30px 0;
     text-align: center;
-    height: 95%;
+    height: 100%;
 `;
 
 const Container = styled(Box)`

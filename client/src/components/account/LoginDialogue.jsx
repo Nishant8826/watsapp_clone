@@ -4,8 +4,8 @@ import { GoogleLogin } from '@react-oauth/google';
 import * as jwt_decode from 'jwt-decode';
 
 import { qrCodeImage } from '../../constants/data'
-
 import { AccountContext } from '../../context/AccountProvider';
+import { addUser } from '../../service/api';
 
 // mui style
 const Component = styled(Box)`
@@ -42,9 +42,10 @@ const LoginDialogue = () => {
 
     const { setAccount } = useContext(AccountContext);
 
-    const onLoginSucess = (res) => {
+    const onLoginSucess = async (res) => {
         const decoded = jwt_decode.jwtDecode(res.credential);
         setAccount(decoded);
+        await addUser(decoded);
     }
 
     const onLoginError = (res) => {

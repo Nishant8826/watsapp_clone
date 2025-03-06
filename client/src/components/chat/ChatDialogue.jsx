@@ -9,14 +9,25 @@ const Component = styled(Box)`
 
 const LeftComponent = styled(Box)`
     min-width:450px;
-`
+`;
 
 const RightComponent = styled(Box)`
     width:73%;
     min-width:300px;
     height:100%;
     border-left:1px solid rgba(0,0,0,0.14)
-`
+`;
+
+const dialogueStyle = {
+    height: '95%',
+    width: '100%',
+    margin: '20px',
+    maxWidth: '100%',
+    maxHeight: '100%',
+    borderRadius: 0,
+    boxShadow: 'none',
+    overFlow: 'hidden',
+}
 
 const ChatDialogue = () => {
     return (
@@ -32,17 +43,6 @@ const ChatDialogue = () => {
 
         </Dialog>
     )
-}
-
-const dialogueStyle = {
-    height: '96%',
-    margin: '20px',
-    width: '100%',
-    maxWidth: '100%',
-    maxHeight: '100%',
-    boxShadow: 'none',
-    overFlow: 'hidden',
-    borderRadius: 0
 }
 
 
