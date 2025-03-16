@@ -35,7 +35,6 @@ const ChatDialogue = () => {
 
     const { person } = useContext(AccountContext);
 
-    console.log('Person :', person)
 
     return (
         <Dialog open={true} PaperProps={{ sx: dialogueStyle }} hideBackdrop={true} maxWidth={'md'}>
