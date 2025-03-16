@@ -16,31 +16,33 @@ const StyledDivider = styled(Divider)`
     opacity:0.6;
 `;
 
-const Conversations = () => {
+const Conversations = ({ text }) => {
 
     const [users, setUsers] = useState([]);
     const { account } = useContext(AccountContext);
 
     const fetchData = async () => {
         let result = await getUser();
-        setUsers(result);
+        const filterData = result.filter(user => user.name.toLowerCase().includes(text.toLowerCase()))
+        setUsers(filterData);
     }
 
     useEffect(() => {
         fetchData();
-    }, [])
+    }, [text])
 
 
 
     return (
         <Component>
             {
-                users && users.map(user => (
-                    user.sub !== account.sub &&
-                    <>
-                        < Conversation user={user} />
-                        <StyledDivider />
-                    </>
+                users && users.map((user, index) => (
+                    user.sub !== account.sub && (
+                        <>
+                            < Conversation user={user} key={user.sub} />
+                            <StyledDivider />
+                        </>
+                    )
                 ))
             }
         </Component>

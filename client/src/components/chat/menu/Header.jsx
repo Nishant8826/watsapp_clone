@@ -41,10 +41,6 @@ const Header = () => {
 
     const { account } = useContext(AccountContext);
 
-    const toggleDrawer = () => {
-        setOpenDrawer(true);
-    }
-
     return (
         <>
             <Component>

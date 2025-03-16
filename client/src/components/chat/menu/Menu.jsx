@@ -8,11 +8,13 @@ import Conversations from './Conversations';
 
 const Menu = () => {
 
+    const [text, setText] = useState('');
+
     return (
         <Box>
             <Header />
-            <Search />
-            <Conversations />
+            <Search setText={setText} />
+            <Conversations text={text} />
         </Box>
     )
 }
