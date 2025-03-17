@@ -28,6 +28,7 @@ const Messages = ({ person, conversation }) => {
     const [text, setText] = useState('');
     const [messages, setMessages] = useState([]);
     const [newMessageFlag, setNewMessageFlag] = useState(false);
+    const [file, setFile] = useState();
 
     useEffect(() => {
         const getMessageDetails = async () => {
@@ -63,7 +64,7 @@ const Messages = ({ person, conversation }) => {
                 ))}
 
             </Component>
-            <Footer sendText={sendText} setText={setText} text={text} />
+            <Footer sendText={sendText} setText={setText} text={text} file={file} setFile={setFile} />
         </Wrapper>
     )
 }

@@ -55,3 +55,12 @@ export const getMessages = async (id) => {
         console.log('Error while getMessages : ', error.message);
     };
 }
+
+export const uploadImage = async (data) => {
+    try {
+        let result = await axios.post(`${url}/file/upload`, data);
+        return result.data;
+    } catch (error) {
+        console.log('Error while uploadImage : ', error.message);
+    };
+}
