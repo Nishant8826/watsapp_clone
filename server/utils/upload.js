@@ -1,11 +1,5 @@
 import multer from 'multer';
-import { GridFsStorage } from 'multer-gridfs-storage';
 
-import dotenv from 'dotenv';
+const storage = multer.memoryStorage(); // Store file in memory as a Buffer
 
-dotenv.config();
-
-const username = process.env.DB_USERNAME;
-const password = process.env.DB_PASSWORD;
-
-
+export default multer({storage});
