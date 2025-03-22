@@ -4,7 +4,7 @@ import { EmojiEmotionsOutlined, AttachFile, Mic } from '@mui/icons-material'
 import { uploadImage } from '../../../service/api';
 
 const Container = styled(Box)`
-    height:60px;
+    height:70px;
     background:#ededed;
     display:flex;
     align-items:center;
