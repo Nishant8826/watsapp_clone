@@ -19,19 +19,24 @@ const StyledDivider = styled(Divider)`
 const Conversations = ({ text }) => {
 
     const [users, setUsers] = useState([]);
-    const { account } = useContext(AccountContext);
+    const { account, socket, setActiveUsers } = useContext(AccountContext);
 
-    const fetchData = async () => {
-        let result = await getUser();
-        const filterData = result.filter(user => user.name.toLowerCase().includes(text.toLowerCase()))
-        setUsers(filterData);
-    }
 
     useEffect(() => {
+        const fetchData = async () => {
+            let result = await getUser();
+            const filterData = result.filter(user => user.name.toLowerCase().includes(text.toLowerCase()))
+            setUsers(filterData);
+        }
         fetchData();
     }, [text])
 
-
+    useEffect(() => {
+        socket.current.emit('addUser', account);
+        socket.current.on("getUsers", users => {
+            setActiveUsers(users);
+        })
+    }, [account])
 
     return (
         <Component>
