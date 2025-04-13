@@ -42,8 +42,6 @@ const ChatHeader = ({ person }) => {
 
     const { activeUsers } = useContext(AccountContext);
 
-    console.log('activeUsers>>>', activeUsers)
-
     return (
         <Header>
             <Image src={person.picture} alt='dp' />

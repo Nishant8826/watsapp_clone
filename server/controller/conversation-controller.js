@@ -19,8 +19,8 @@ export const newConversation = async (req, res) => {
 
 export const getConversation = async (req, res) => {
     try {
-        const { senderId, receiverId } = req.body;
-        const conversation = await Conversation.findOne({ members: { $all: [receiverId, senderId] } });
+        const { senderId, recieverId } = req.body;
+        const conversation = await Conversation.findOne({ members: { $all: [recieverId, senderId] } });
         return res.status(200).send({ status: true, conversation: conversation });
     } catch (error) {
         return res.status(500).send({ status: false, error: error.message });

@@ -14,7 +14,7 @@ const ChatBox = () => {
 
     useEffect(() => {
         const getConversationDetails = async () => {
-            let data = await getConversation({ senderId: account.sub, receiverId: person.sub });
+            let data = await getConversation({ senderId: account.sub, recieverId: person.sub });
             setConversation(data.conversation);
         }
         getConversationDetails();
