@@ -24,11 +24,10 @@ const Container = styled(Box)`
 
 const Messages = ({ person, conversation }) => {
 
-    const { account, socket } = useContext(AccountContext)
+    const { account, socket, newMessageFlag, setNewMessageFlag } = useContext(AccountContext)
 
     const [text, setText] = useState('');
     const [messages, setMessages] = useState([]);
-    const [newMessageFlag, setNewMessageFlag] = useState(false);
     const [file, setFile] = useState();
     const [image, setImage] = useState('');
     const scrollRef = useRef();

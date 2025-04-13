@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Box, Typography, styled } from '@mui/material'
 import { AccountContext } from '../../../context/AccountProvider'
-import { setConversation } from '../../../service/api'
+import { setConversation, getConversation } from '../../../service/api'
 
 const Component = styled(Box)`
     display:flex;
@@ -19,12 +19,25 @@ const Image = styled('img')({
 
 const Conversation = ({ user }) => {
 
-    const { setPerson, account } = useContext(AccountContext);
+    const { setPerson, account, newMessageFlag, setNewMessageFlag } = useContext(AccountContext);
+
+    const [message, setMessage] = useState({});
 
     const getUser = async () => {
         setPerson(user);
         await setConversation({ senderId: account.sub, recieverId: user.sub });
     }
+
+    useEffect(() => {
+        const getConverSation = async () => {
+            const data = await getConversation({ senderId: account.sub, recieverId: user.sub });
+            setMessage({ text: data.conversation?.message, timeStamps: data.conversation?.updatedAt })
+        }
+
+        getConverSation();
+    }, [newMessageFlag])
+
+    console.log('message>>>',message)
 
     return (
         <Component onClick={() => getUser()}>
@@ -34,6 +47,7 @@ const Conversation = ({ user }) => {
             <Box>
                 <Box>
                     <Typography>{user?.name}</Typography>
+                    {message?.text && <Typography>{message?.timeStamps}</Typography>}
                 </Box>
             </Box>
         </Component >
