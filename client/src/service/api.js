@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const url = 'https://watsapp-clone-api.vercel.app';
+const url = 'https://watsapp-clone-api.onrender.com';
 
 export const addUser = async (data) => {
     try {
