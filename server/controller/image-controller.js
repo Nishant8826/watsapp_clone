@@ -1,7 +1,7 @@
 
 import File from '../model/File.js'
 
-const url = 'http://localhost:8000'
+const url = 'https://watsapp-clone-api.onrender.com'
 
 export const uploadFile = async (req, res) => {
     try {
