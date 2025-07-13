@@ -1,6 +1,7 @@
 import React, { createContext, useState, useRef, useEffect } from 'react'
 
 import { io } from 'socket.io-client';
+import { socketURI } from '../config/config';
 
 export const AccountContext = createContext(null);
 
@@ -14,7 +15,7 @@ const AccountProvider = ({ children }) => {
     const socket = useRef();
 
     useEffect(() => {
-        socket.current = io('https://watsapp-clone-socket.onrender.com');
+        socket.current = io(socketURI);
     }, [])
 
     return (
