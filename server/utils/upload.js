@@ -1,5 +1,5 @@
-import multer from 'multer';
+const multer = require('multer');
 
-const storage = multer.memoryStorage(); // Store file in memory as a Buffer
+const storage = multer.memoryStorage();
 
-export default multer({storage});
+module.exports = multer({ storage });

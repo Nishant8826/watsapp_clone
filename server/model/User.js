@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
     aud: {
@@ -61,4 +61,4 @@ const userSchema = new mongoose.Schema({
 
 const user = mongoose.model('user', userSchema);
 
-export default user;
+module.exports = user;

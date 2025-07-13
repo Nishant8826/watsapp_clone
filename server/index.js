@@ -1,9 +1,9 @@
-import express from "express";
-import cors from 'cors'
+const express = require("express");
+const cors = require('cors')
 
-import { Connection } from "./database/db.js";
-import route from "./routes/route.js";
-
+require('dotenv').config();
+const route = require("./routes/route.js");
+const Connection = require("./database/db.js");
 const app = express();
 
 app.use(express.json());
@@ -11,7 +11,7 @@ app.use(cors());
 
 app.use('/', route);
 
-const PORT = '8000'
+const PORT = process.env.PORT || '8000'
 
 Connection();
 

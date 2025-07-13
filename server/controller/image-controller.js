@@ -1,9 +1,9 @@
+const { url } = require('../config/config.js');
 
-import File from '../model/File.js'
+const File = require('../model/File.js');
 
-const url = 'https://watsapp-clone-api.onrender.com'
 
-export const uploadFile = async (req, res) => {
+const uploadFile = async (req, res) => {
     try {
         if (!req.file) {
             return res.status(404).send({ status: false, msg: 'File not Found' });
@@ -22,9 +22,9 @@ export const uploadFile = async (req, res) => {
     }
 }
 
-export const getFile = async (req, res) => {
+const getFile = async (req, res) => {
     try {
-        const file = await File.findOne({filename:req.params.id});
+        const file = await File.findOne({ filename: req.params.id });
         if (!file) return res.status(404).json({ error: 'File not found' });
 
         res.set('Content-Type', file.contentType);
@@ -33,3 +33,5 @@ export const getFile = async (req, res) => {
         return res.status(500).json({ error: 'Error retrieving file' });
     }
 }
+
+module.exports = { uploadFile, getFile };

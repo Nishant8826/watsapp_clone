@@ -1,6 +1,6 @@
-import Conversation from "../model/Conversation.js";
+const Conversation = require("../model/Conversation.js");
 
-export const newConversation = async (req, res) => {
+const newConversation = async (req, res) => {
     try {
         const { senderId, recieverId } = req.body;
         const exist = await Conversation.findOne({ members: { $all: [recieverId, senderId] } });
@@ -17,7 +17,7 @@ export const newConversation = async (req, res) => {
     }
 }
 
-export const getConversation = async (req, res) => {
+const getConversation = async (req, res) => {
     try {
         const { senderId, recieverId } = req.body;
         const conversation = await Conversation.findOne({ members: { $all: [recieverId, senderId] } });
@@ -26,3 +26,5 @@ export const getConversation = async (req, res) => {
         return res.status(500).send({ status: false, error: error.message });
     }
 }
+
+module.exports = { newConversation, getConversation };

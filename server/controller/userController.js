@@ -1,6 +1,6 @@
-import user from '../model/User.js'
+const user = require('../model/User.js');
 
-export const addUser = async (req, res) => {
+const addUser = async (req, res) => {
     try {
         let exist = await user.findOne({ sub: req.body.sub });
         if (exist) {
@@ -14,7 +14,7 @@ export const addUser = async (req, res) => {
     }
 }
 
-export const getUsers = async (req, res) => {
+const getUsers = async (req, res) => {
     try {
         const users = await user.find({});
         return res.status(200).send(users);
@@ -22,3 +22,4 @@ export const getUsers = async (req, res) => {
         return res.status(500).send({ status: false, error: error.message });
     }
 }
+module.exports = { addUser, getUsers };
