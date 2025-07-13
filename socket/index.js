@@ -2,7 +2,7 @@ import { Server } from 'socket.io';
 
 const io = new Server(9000, {
     cors: {
-        origin: 'https://watsapp-clone-client.vercel.app',
+        origin: 'http://localhost:8000',
     },
 })
 
